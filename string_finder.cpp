@@ -2,13 +2,6 @@
 
 namespace string_finder {
 
-StringFinder::StringFinder(int min_chars) : min_chars{min_chars} {}
-
-StringFinder::StringFinder(std::string grep_chars) : grep_chars{grep_chars} {}
-
-StringFinder::StringFinder(std::string grep_chars, int min_chars) 
-    : grep_chars{grep_chars}, min_chars{min_chars} {}
-
 std::vector<std::string> StringFinder::find_strings(std::string file) {
   std::ifstream buffer{file, std::ios::binary};
   std::vector<std::string> stringsVector;
@@ -22,6 +15,14 @@ std::vector<std::string> StringFinder::find_strings(std::string file) {
     }
   }
   return stringsVector;
+}
+
+void StringFinder::set_min_chars(int min_chars) {
+  this->min_chars = min_chars;
+}
+
+void StringFinder::set_filter(std::string filter) {
+  this->grep_chars = filter;
 }
 
 std::string StringFinder::get_string(std::ifstream& buffer) {

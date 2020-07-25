@@ -13,11 +13,10 @@ namespace string_finder {
 class StringFinder {
  public:
   StringFinder() = default;
-  StringFinder(int min_char);
-  StringFinder(std::string grep_char);
-  StringFinder(std::string grep_char, int min_char);
 
   std::vector<std::string> find_strings(std::string file);
+  void set_min_chars(int min_chars);
+  void set_filter(std::string);
  
  private:
   int min_chars{3};
