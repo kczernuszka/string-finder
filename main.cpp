@@ -7,12 +7,12 @@ int main(int argc, char *argv[]) {
   auto arguments = cmd_parser.getArguments();
 
   if(arguments->min_chars > 0)
-    string_finder.set_min_chars(arguments->min_chars);
+    string_finder.setMinChars(arguments->min_chars);
   if(!arguments->grep_chars.empty())
-    string_finder.set_filter(arguments->grep_chars);
+    string_finder.setFilter(arguments->grep_chars);
 
   for(auto &file: arguments->files) {
-    auto stringsVector = string_finder.find_strings(file);
+    auto stringsVector = string_finder.findStrings(file);
     for(auto &string: stringsVector) {
       std::cout << string << std::endl;
     }
